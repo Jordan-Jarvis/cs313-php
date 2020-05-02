@@ -41,10 +41,15 @@ function arpCalculator() {
             document.getElementById("amount").value = getRandomInt(1,2000000);
             document.getElementById("apr").value = getRandomInt(1,250).toFixed(2)/10;
             }
+         try {
+            var years = parseInt(document.getElementById("years").value);
+         }catch(e){}
          
-         var years = parseInt(document.getElementById("years").value);
          var amount = parseInt(document.getElementById("amount").value);
-         var annualRate = parseFloat(document.getElementById("annualRate").value);
+         try {
+            var annualRate = parseFloat(document.getElementById("annualRate").value);
+         }catch(e){}
+         
          
          var years = years *12;
 
