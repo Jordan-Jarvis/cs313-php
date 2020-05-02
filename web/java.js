@@ -1,6 +1,9 @@
 var slideIndex = 1;
+showDivs(slideIndex);
 
-
+function plusDivs(n) {
+    showDivs(slideIndex += n);
+    }
 function showDivs(n) {
     var i;
     var x = document.getElementsByClassName("mySlides");
@@ -15,11 +18,6 @@ function showDivs(n) {
     }
     x[slideIndex - 1].style.display = "block";
 }
-function plusDivs(n) {
-    showDivs(slideIndex += n);
-    }
-
-showDivs(slideIndex);
 
 function arpCalculator() {
     let form1 = document.getElementById("phpForm");         
