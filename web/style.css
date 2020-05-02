@@ -145,3 +145,34 @@
         background-color: rgb(56, 51, 51);
         color: white;
     }
+    .mySlides {
+        display: none;
+    }
+
+    .Sciences-header {
+        margin-top: 5%;
+        opacity: 1;
+        font-size: 36px;
+        text-align: center;
+    }
+    .content{
+        margin-left:auto;
+        margin-right:auto;
+        position:relative;
+        max-width: 70%;
+        max-height: 70%;
+    }
+    .display-left{
+        position:absolute;
+        top:50%;
+        left:0%;
+        transform:translate(0%,-50%);
+        -ms-transform:translate(-0%,-50%);
+    }
+    .display-right{
+        position:absolute;
+        top:50%;
+        right:0%;
+        transform:translate(0%,-50%);
+        -ms-transform:translate(-0%,-50%);
+    }
