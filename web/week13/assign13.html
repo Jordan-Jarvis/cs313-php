@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registrar</title>
+</head>
+<body>
+
+   <h1>Form</h1>
+    <form id="form1">
+
+      Type: <br>
+      <input type="radio" name="performance" id="solo" value="solo"> Solo<br>
+      <input type="radio" name="performance" id="duet" value="duet"> Duet<br>
+      <input type="radio" name="performance" id="concerto" value="concerto"> Concerto<br>
+
+       First Name: <input type="text" id="fname" name="first_name" required><br>
+       Last Name: <input type="text" id="lname" name="last_name" required><br>
+       Student ID: <input type="text" id="id" name="student_id" required><br>
+
+
+      <div id="Second">
+          <br><br>
+        Second student <br>
+         First Name: <input type="text" id="fname2" name="first_name_2"><br>
+         Last Name: <input type="text" id="lname2" name="last_name_2"><br>
+         Student ID: <input type="text" id="lname2" name="student_id_2"><br>
+      </div>
+
+      Skill Level: <br>
+      <input type="radio" name="skill" value="beginner"> Beginner<br>
+      <input type="radio" name="skill" value="intermediate"> Intermediate<br>
+      <input type="radio" name="skill" value="pre-advanced"> Pre-Advanced<br>
+      <input type="radio" name="skill" value="advanced"> Advanced<br>
+
+      Instrument: <br>
+      <input type="radio" name="instrument" value="piano"> Piano<br>
+      <input type="radio" name="instrument" value="voice"> Voice<br>
+      <input type="radio" name="instrument" value="string"> String<br>
+      <input type="radio" name="instrument" value="organ"> Organ<br>
+      <input type="radio" name="instrument" value="other"> Other<br>
+
+      Location: <br>
+      <input type="radio" name="location" value="snow"> Snow<br>
+      <input type="radio" name="location" value="austin"> Austin<br>
+      <input type="radio" name="location" value="hinkley"> Hinkley<br>
+      <input type="radio" name="location" value="mc"> MC<br>
+      <input type="radio" name="location" value="other"> Other<br>
+
+      Room Number: <input type="text" id="room" name="room" required><br>
+
+      Time Slot: <br>
+      <input type="radio" name="time_slot" value="8:00am"> 8:00AM<br>
+      <input type="radio" name="time_slot" value="12:00pm"> 12:00PM<br>
+      <input type="radio" name="time_slot" value="4:00pm"> 4:00PM<br>
+      <input type="radio" name="time_slot" value="8:00pm"> 8:00PM<br>
+
+      Register Student<input type="submit" value="Submit"><br>
+      Clear           <input type="reset" value="Clear">
+
+    </form>
+    <div id="result"></div>
+    <script>
+        
+
+window.onload = function(){
+    let theForm = document.getElementById('form1');
+    document.getElementById("form1").addEventListener('submit', submitForm);
+}
+document.getElementById('solo').addEventListener('input', exception1);
+document.getElementById('duet').addEventListener('input', exception1);
+document.getElementById('concerto').addEventListener('input', exception1);
+function submitForm(event){
+    event.preventDefault();
+    let formData = new FormData(document.getElementById('form1'));
+    let xhr = new XMLHttpRequest();
+    let tempvar = 0;
+    xhr.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+            console.log(this.responseText);
+            let result = JSON.parse(this.responseText);
+            let content = "";
+
+            for(person of result){
+                if(person.performance == "duet")
+                {
+                    content += "<br><br>>Performance: " + person.performance + "<br>";
+                    content += "StudentID: " + person.student_id + "<br>";
+                    content += "Names: " + person.first_name + " " + person.last_name + "<br>";
+                    content += "and " + person.first_name_2 + " " + person.last_name_2 + "<br>";
+                    content += "StudentID2: " + person.student_id_2 + "<br>";
+                    content += "Skill Level: " + person.skill + "<br>";
+                    content += "Instrument: " + person.instrument + "<br>";
+                    content += "Location: " + person.location + "<br>";
+                    content += "Room Number: " + person.room + "<br>";
+                    content += "Time Slot: " + person.time_slot + "<br><br>";
+                }
+                else{
+                    tempvar = 1;
+                    content += "<br><br>>Performance: " + person.performance + "<br>";
+                    content += "StudentID: " + person.student_id + "<br>";
+                    content += "Name: " + person.first_name + " " + person.last_name + "<br>";
+                    content += "Skill Level: " + person.skill + "<br>";
+                    content += "Instrument: " + person.instrument + "<br>";
+                    content += "Location: " + person.location + "<br>";
+                    content += "Room Number: " + person.room + "<br>";
+                    content += "Time Slot: " + person.time_slot + "<br><br>";
+                }
+            }
+            document.getElementById('result').innerHTML = content;
+
+        }
+    };
+    xhr.open("POST", "assign13.php");
+    xhr.send(formData);
+}
+function exception1(event){
+    let currentValue = event.currentTarget.value;
+    if (currentValue == "duet") {
+        document.getElementById("Second").style.display = "block";
+    }
+    else{
+        document.getElementById("Second").style.display = "none";
+    }
+}
+    </script>
+</body>
+
+</html>
+
+
+
+

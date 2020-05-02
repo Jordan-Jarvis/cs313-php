@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>Jarvis University</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Jarvis is short for Just A Rather Very Intelligent System.">
+<link rel="stylesheet" href="./fonts.css">
+<link rel="stylesheet" href="./w3.css">
+<link href="./style.css" rel="stylesheet">
+
+<style>
+    .item1 {
+        grid-area: header;
+        width: 95%;
+    }
+
+    .item2 {
+        grid-area: menu;
+    }
+
+    .item3 {
+        grid-area: main;
+    }
+
+    .item4 {
+        grid-area: footer;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-areas:
+            'header header header header header header'
+            'menu menu main main main main'
+            'menu menu main main main main'
+            'footer footer footer footer footer footer';
+
+    }
+    li{
+        padding: 8px 16px;
+        border: solid 2px black;
+        background-color: #ddd;
+       list-style: none;
+
+    }
+    a{
+        text-decoration: none;
+    }
+    li:hover{
+        background-color: aqua;
+        color:yellow;
+    }
+</style>
+
+
+
+
+</head><body>
+
+    <div class="top">
+        <div class="bar">
+            <img class="logo bar-item hidden " src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/07712d52323517.5608d99892165.png" alt="Jarvis Logo">
+            <div class="right">
+                <a href="./universityofcode.html" class="bar-item button">Home</a>
+                <a href="./academics.html" class="bar-item button">Academics</a>
+                <a href="./Sciences.html" class="bar-item button">Sciences</a>
+                <a href="./Mathematics.html" class="bar-item button">Mathematics</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="grid-container">
+        <header class="container item1" id="home">
+            <img class="image" src="https://wallpaperaccess.com/full/741407.jpg" alt="Stock background">
+            <div class="display-middle">
+                <h1 class="text"><span class="span"><b>Academics</b></span></h1>
+            </div>
+        </header>
+
+        <div class="item2">
+            <ul>
+                <li><a href="#">Apply Now</a></li>
+                <li>Financial Aid</li>
+                <li>Degrees and Programs</li>
+                <li>Student Housing</li>
+                <li>Scholarships</li>
+                <li>Clubs and Activities</li>
+                <li>Tuition and Fees</li>
+            </ul>
+        </div>
+
+
+      <div class="item3">
+            <h1>Academics</h1>
+            <p>A Stanford education is not a narrow path that students 
+follow from Point A to Point Z.
+            
+            We encourage our students to explore the academic landscape,
+ venturing into unfamiliar fields
+             of knowledge and, perhaps, discovering new passions that 
+will take them in a different direction altogether. 
+             Along the way, faculty members help guide them, and fellow 
+students offer diverse perspectives that can shed new light on the path.
+ We also encourage our students to push the limits of human technology and work to benefit mankind with new breakthrough and technologies.
+            
+            By nurturing this spirit of advancement, Jarvis University aims to prepare 
+global citizens for a life-long love of learning and pushing the boundaries of unnovation across the world.</p>
+      </div>
+
+        <!-- Footer -->
+        <!-- from w3 school -->
+        <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge item4" style="margin-top:128px">
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+        </footer>
+    </div>
+
+
+</body></html>

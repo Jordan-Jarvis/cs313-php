@@ -1,0 +1,107 @@
+.top {
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+        top: 0;
+    }
+
+    .bar {
+        width: 100%;
+        overflow: hidden;
+        color: #000;
+        background-color: #fff;
+        letter-spacing: 1px;
+        padding: 8px 16px;
+        font-size: 20px;
+
+    }
+
+    .bar-item {
+        float: left;
+
+    }
+
+    .logo {
+        float: left;
+         width: 150px;
+         height: -40;
+         overflow: hidden;
+         margin: -40px -40px -60px -0px;
+    }
+
+    .button {
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    .button1{
+        padding: 12px 16px;
+        text-decoration: none;
+    }
+
+    .button:hover {
+        color: #000;
+        background-color: #ccc;
+    }
+
+    .right {
+        float: right;
+    }
+
+    @media screen and (max-width: 650px) {
+        .bar {
+            font-size: 2.3vw;
+        }
+
+        .bar {
+            padding: 1px 2px;
+        }
+
+    }
+    .container {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1500px;
+    }
+
+    .image {
+        width: 100%;
+        height: auto;
+    }
+
+    .display-middle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+    }
+    .text{
+        font-size: 40px;
+        color:#fff;
+    }
+    @media screen and (min-width: 1000px){
+        .text{
+            font-size: 60px;
+        }
+        
+    }
+    .span{
+        padding:8px 16px;
+        color:#fff;
+        background-color:#000;
+        opacity: 0.5;
+    }
+    .span1{
+        padding:8px 16px;
+        color:#fff;
+        background-color:#000;
+        opacity: 0.8;
+    }
+    p, h1, h2, h3, h4{
+    margin: 12px 16px;
+    }
+    h1, h2, h3, h4{
+        color: rgb(112, 112, 68);
+    }

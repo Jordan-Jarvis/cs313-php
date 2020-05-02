@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, intitial-scale=1.0">
+    <title>Ajax and Json</title>
+    <script src="java.js"></script>
+    <style>
+      .button {
+        padding: 8px 16px;
+        text-decoration: none;
+        
+      .button:hover {
+        color: #000;
+        background-color: #ccc;
+    }
+    </style>
+</head>
+
+<body>
+    <h2>Countries	stuff</h2>
+    <p>
+    Please click any button below, corresponding information will be provided.<br>
+    <br><hr>City and Population
+    </p>
+    <pre id="info"> - <br> - <br> - <br> - <br> - <br> - <br> - <br> - <br> - <br> - </pre>
+    <button type="button" onclick="USA()">USA</button>
+    <button type="button" onclick="Canada()">Canada</button>
+    <button type="button" onclick="Mexico()">Mexico</button>
+    <button type="button" onclick="Russia()">Russia</button>
+
+    <h2>Json stuff</h2>
+    
+     Filename: <input type="text" name="filename" id="filename" value="json.txt"><br>
+    <button type="button" onclick="populatePage()">Sumbit</button>
+    <p id="information"></p>
+</body></html>

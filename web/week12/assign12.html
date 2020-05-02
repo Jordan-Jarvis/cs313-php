@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Form Processing</title>
+    <script src="java.js"></script>
+</head>
+<body>
+
+
+    <form id="form1" action="assign12.php" method="GET" onreset="setFocus()">
+        <p><b>Base Price for Jarvis IT services- $50</b></p><br><br>
+        <p>Select any of the following services.</p>
+        Hardware repairs  -  30$<input type="checkbox" id="item1" name="items[]" value="hwRepair" onchange="price()"><br><br>
+        Virus removal  -  20$<input type="checkbox" id="item2" name="items[]" value="vRemoval" onchange="price()"><br><br>
+        Consumer pc setup  -  50$<input type="checkbox" id="item3" name="items[]" value="pcSetup" onchange="price()"><br><br>
+        Server setup  -  100$<input type="checkbox" id="item4" name="items[]" value="sSetup" onchange="price()"><br><br>
+        Network setup  -  40$<input type="checkbox" id="item5" name="items[]" value="nSetup" onchange="price()"><br><br>
+        Cable runs  -  300$<input type="checkbox" id="item6" name="items[]" value="cRuns" onchange="price()"><br><br>
+        Firewall/VPN setup  -  120$<input type="checkbox" id="item7" name="items[]" value="VPN" onchange="price()"><br><br>
+        Total: <input type="number" name="total" id="total" value="0"  readonly><br>
+
+        <p><b>Checkout: </b></p><br><br>
+        First Name: <input type="text" name="first_name" id="first" required><br>
+        Last Name: <input type="text" name="last" id="last_name" required><br>
+        Address: <input type="text" name="address" id="address" required><br>
+        Phone: <input type="text" name="phone" id="phone" onchange="phoneN(this)" required><span id="change1" style="color: red"></span><br>
+
+        Credit Card Type:<br>
+        Visa<input type="radio" name="card" id="visa" value="Visa">
+        MasterCard<input type="radio" name="card" id="mastercard" value="Mastercard">
+        American Express<input type="radio" name="card" id="american_express" value="American Express"><br>
+
+        Credit Card Number: <input type="text" name="credit_card" id="credit_card" onchange="cardN(this)" required>
+        <span id="change2" style="color: red"></span><br>
+ 
+        Credit Card Expiration Date: <input type="text" name="exp_date" id="exp_date" onchange="expir(this)" required>
+        <span id="change3" style="color: red"></span><br>
+
+        <input type="reset" name="reset" id="reset" value="Clear">
+        <input type="submit" id="submit" value="Submit" onclick="submi();">
+        
+    </form>
+    <button type="calculateRandom" id="rand" value="Rand" onclick="calculate()" >Generate Random Values</button>
+    <footer>
+        © Jarvis Corporation. 2020. All Rights Reserved.
+     </footer>
+</body></html>
+
+
+
+

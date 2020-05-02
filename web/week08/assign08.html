@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+
+   <link href="assign08.css" rel="stylesheet">
+
+</head>
+   <script>
+      function setFocus() {
+         document.getElementById("firstName").focus();
+      }
+
+      function checkFields() {
+         form.reportValidity();
+      }
+
+      function calculateTotal() {
+
+         var total = 50;
+         if (document.getElementById('hwRepair').checked) {
+            total += 30.00;
+         }
+         if (document.getElementById('vRemoval').checked) {
+            total += 20.00;
+         }
+         if (document.getElementById('pcSetup').checked) {
+            total += 50.00;
+         }
+         if (document.getElementById('sSetup').checked) {
+            total += 100.00;
+         }
+         if (document.getElementById('nSetup').checked) {
+            total += 40.00;
+         }
+         if (document.getElementById('cRuns').checked) {
+            total += 300.00;
+         }
+         if (document.getElementById('VPN').checked) {
+            total += 120.00;
+         }
+         document.getElementById("total").value = '$' + total.toFixed(2);
+      }
+
+      function validatePhoneNumber(inputElement) {
+
+         let errorMsgElement = inputElement.nextElementSibling;
+
+         var phoneNumber = document.getElementById("phone_number").value;
+         var phonePattern = /^\d{3}-\d{3}-\d{4}$/;
+
+         if ((phoneNumber.match(phonePattern) || phoneNumber.length == 0)) {
+            errorMsgElement.style.visibility = "hidden";
+         }
+         else {
+            errorMsgElement.style.visibility = "visible";
+         }
+      }
+
+      function validateCreditCard(inputElement) {
+         let errorMsgElement = inputElement.nextElementSibling;
+         var creditCardNumber = document.getElementById("creditCard").value;
+         var creditCardPattern = /^\d{4}\s\d{4}\s\d{4}\s\d{4}$/;
+         if ((creditCardNumber.match(creditCardPattern) || creditCardNumber.length == 0)) {
+            errorMsgElement.style.visibility = "hidden";
+         }
+         else {
+            errorMsgElement.style.visibility = "visible";
+         }
+      }
+      
+      function validateCreditCardExpDate(inputElement) {
+         let errorMsgElement = inputElement.nextElementSibling;
+         var creditCardExpDate = document.getElementById("expDate").value;
+         var creditCardExpDatePattern = /^([1-9]|0[1-9]|1[0-2])\/(20[2-9]\d)$/;
+         if ((creditCardExpDate.match(creditCardExpDatePattern) || creditCardExpDate.length == 0)) {
+            errorMsgElement.style.visibility = "hidden";
+         }
+         else {
+            errorMsgElement.style.visibility = "visible";
+         }
+      }
+   </script>
+<body onload="calculateTotal()">
+
+
+   <form id="form" onreset="setFocus()">
+      <p><b>Base Price for Jarvis IT services- $50</b></p><br><br>
+      <p>Select any of the following services.</p>
+      <input type="checkbox" name="item_0" value="hwRepair" id="hwRepair" oninput="calculateTotal()"> Hardware repairs  -  30$<br>
+      <input type="checkbox" name="item_1" value="vRemoval" id="vRemoval" oninput="calculateTotal()"> Virus removal  -  20$<br>
+      <input type="checkbox" name="item_2" value="pcSetup" id="pcSetup" oninput="calculateTotal()"> Consumer pc setup  -  50$<br>
+      <input type="checkbox" name="item_3" value="sSetup" id="sSetup" oninput="calculateTotal()"> Server setup  -  100$<br>
+      <input type="checkbox" name="item_4" value="nSetup" id="nSetup" oninput="calculateTotal()"> Network setup  -  40$<br>
+      <input type="checkbox" name="item_5" value="cRuns" id="cRuns" oninput="calculateTotal()"> Cable runs  -  300$<br>
+      <input type="checkbox" name="item_6" value="VPN" id="VPN" oninput="calculateTotal()"> Firewall/VPN setup  -  120$<br><br>
+
+      <p> Total: </p>
+      <input type="text" name="total" id="total" readonly="readonly" value="$50.00"><br><br>
+
+      <p><b>Checkout: </b></p><br><br>
+
+      <p> First Name: </p><input type="text" name="first_name" id="firstName" required="" placeholder="Ex: John"><br>
+      <p> Last Name: </p><input type="text" name="last_name" id="lastName" required="" placeholder="Ex: Doe"><br><br><br>
+      <p>Address: </p><textarea id="_address" name="address" rows="5" cols="33" required="" placeholder="Ex: street address, city, state, and zip"></textarea><br><br>
+      <p> Phone Number: </p><input type="text" name="phone" id="phone_number" required="" placeholder="Ex: 555-555-5555" onchange="validatePhoneNumber(this);"><span class="error_message">bad Phone Number</span><br><br><br>
+      <p><b>Credit Card Information: </b></p><br><br>
+      <p> Card Type: </p>
+      <input type="radio" name="card" value="Visa" required=""> Visa<br>
+      <input type="radio" name="card" value="Mastecard"> Mastecard<br>
+      <input type="radio" name="card" value="American Express"> American Express<br><br><br><br>
+
+      <p> Credit Card #: </p>
+      <input type="text" name="credit_card" id="creditCard" required="" placeholder="Ex: 1111 2222 3333 4444" onchange="validateCreditCard(this);"><span class="error_message">Credit Card Number is invalid</span><br>
+
+      <p> Expiration Date: </p>
+      <input type="text" name="exp_date" id="expDate" required="" placeholder="Ex: 01/2020" onchange="validateCreditCardExpDate(this);"><span class="error_message">Credit Card Expiration Date is Invalid</span><br><br><br>
+
+      <div class="buttons">
+
+         <input type="reset" name="reset" value="Reset">
+
+         <input type="button" id="submit_button" name="validate" value="Submit" onclick="checkFields()">
+         
+      </div>
+
+   </form>
+
+   <footer>
+      © Jarvis Corporation. 2020. All Rights Reserved.
+   </footer>
+   
+</body></html>

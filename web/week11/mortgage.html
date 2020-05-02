@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script>
+      function arpCalculator() {
+         let form1 = document.getElementById("phpForm");         
+      }
+      function getRandomInt(min, max) {
+         min = Math.ceil(min);
+         max = Math.floor(max);
+         return Math.floor(Math.random() * (max - min + 1)) + min;
+  //The maximum is inclusive and the minimum is inclusive 
+      }
+      function calculate(random){
+         if (random > 0){
+            document.getElementById("term").value = getRandomInt(1,40);
+            document.getElementById("amount").value = getRandomInt(1,2000000);
+            document.getElementById("apr").value = getRandomInt(1,250).toFixed(2)/10;
+            }
+         
+         var years = parseInt(document.getElementById("years").value);
+         var amount = parseInt(document.getElementById("amount").value);
+         var annualRate = parseFloat(document.getElementById("annualRate").value);
+         
+         var years = years *12;
+
+         
+         if (amount == "" ){
+            result = window.confirm("Please enter an amount.");
+         }
+         else if (annualRate == "" ){
+            result = window.confirm("Please enter a rate.");
+         }
+         else if (years == "") {
+            result = window.confirm("Please enter a value for number of years.");
+         }
+         else if(years > 480 || years < 12)
+         {
+            result = window.confirm("Number of years should be between 1 and 40");
+         }
+         
+         else if(annualRate <= 0 || annualRate > 25)
+         {
+            result = window.confirm("Annual rate should be between 1 and 25%");
+         }
+         
+         else {
+            arpCalculator()
+         }
+
+      }
+
+
+   </script>
+   <link href="style.css" rel="stylesheet">
+   <title>Mortgage Calculator using php</title>
+</head>
+<body>
+   <form id="phpForm" action="mortgage.php" method="GET">
+      <h1>Mortgage Calculator using PHP</h1>
+      <div> APR:
+      <input type="float" name="apr" id="apr" min="0" max="25"   placeholder="Example: 5"><br>
+      Loan Term (number of Years):
+      <input type="float" name="term" id="term" min="0"  max="40"  placeholder="Example: 10"><br>
+      Loan Amount USD:
+      <input type="float" name="amount" id="amount" min="0"  placeholder="Example: 100000"><br>
+      <input name="clearButton" id="clear" type="reset" value="Clear">
+      <input name="calculateButton" id="calcuate" type="submit" value="Calculate" onclick="calculate(0)">
+      <button type="button" onclick="calculate(1)" >Generate Random Values</button>
+   </div>
+   </form>
+</body>
+</html>

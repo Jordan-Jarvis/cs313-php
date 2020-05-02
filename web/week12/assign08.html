@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>PHP Form processing</title>
+
+   <link href="assign12.css" rel="stylesheet">
+   <script src="java.js"></script>
+</head>
+
+<body onload="calculateTotal()">
+
+
+   <form id="form" action="assign12.php" method="GET" onreset="setFocus()">
+      <p><b>Base Price for Jarvis IT services- $50</b></p><br><br>
+      <p>Select any of the following services.</p>
+      <input type="checkbox" name="item_0" value="hwRepair" id="hwRepair" oninput="calculateTotal()"> Hardware repairs  -  30$<br>
+      <input type="checkbox" name="item_1" value="vRemoval" id="vRemoval" oninput="calculateTotal()"> Virus removal  -  20$<br>
+      <input type="checkbox" name="item_2" value="pcSetup" id="pcSetup" oninput="calculateTotal()"> Consumer pc setup  -  50$<br>
+      <input type="checkbox" name="item_3" value="sSetup" id="sSetup" oninput="calculateTotal()"> Server setup  -  100$<br>
+      <input type="checkbox" name="item_4" value="nSetup" id="nSetup" oninput="calculateTotal()"> Network setup  -  40$<br>
+      <input type="checkbox" name="item_5" value="cRuns" id="cRuns" oninput="calculateTotal()"> Cable runs  -  300$<br>
+      <input type="checkbox" name="item_6" value="VPN" id="VPN" oninput="calculateTotal()"> Firewall/VPN setup  -  120$<br><br>
+
+      <p> Total: </p>
+      <input type="text" name="total" id="total" readonly="readonly" value="$50.00"><br><br>
+
+      <p><b>Checkout: </b></p><br><br>
+
+      <p> First Name: </p><input type="text" name="first_name" id="firstName" required="" placeholder="Ex: John"><br>
+      <p> Last Name: </p><input type="text" name="last_name" id="lastName" required="" placeholder="Ex: Doe"><br><br><br>
+      <p>Address: </p><textarea id="_address" name="address" rows="5" cols="33" required="" placeholder="Ex: street address, city, state, and zip"></textarea><br><br>
+      <p> Phone Number: </p><input type="text" name="phone" id="phone_number" required="" placeholder="Ex: 555-555-5555" onchange="validatePhoneNumber(this);"><span class="error_message">bad Phone Number</span><br><br><br>
+      <p><b>Credit Card Information: </b></p><br><br>
+      <p> Card Type: </p>
+      <input type="radio" name="card" value="Visa" required=""> Visa<br>
+      <input type="radio" name="card" value="Mastecard"> Mastecard<br>
+      <input type="radio" name="card" value="American Express"> American Express<br><br><br><br>
+
+      <p> Credit Card: </p>
+      <input type="text" name="credit_card" id="creditCard" required="" placeholder="Ex: 1111 1111 1111 1111" onchange="validateCreditCard(this);"><span class="error_message">Card Number is invalid</span><br>
+
+      <p> Expiration Date: </p>
+      <input type="text" name="exp_date" id="expDate" required="" placeholder="Ex: 01/2020" onchange="validateCreditCardExpDate(this);"><span class="error_message">Expiration Date is Invalid</span><br><br><br>
+
+      <div class="buttons">
+
+         <input type="reset" name="reset" value="Reset">
+
+         <input type="button" id="submit_button" name="validate" value="Submit" onclick="submi()">
+         
+      </div>
+
+   </form>
+
+   <footer>
+      © Jarvis Corporation. 2020. All Rights Reserved.
+   </footer>
+   
+</body></html>

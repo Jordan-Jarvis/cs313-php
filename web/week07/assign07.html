@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mortgage Calculator</title>
+    <script src="Calculate.js"></script>
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Mortgage Calculator</h1>
+        <form>
+            <p id="Annual">
+                Annual Rate: <br>
+                <input type="text" id="annualRate" name="annualRate"><br><br>
+            </p>
+            <p id="LongTime">
+                Number of years: <br>
+                <input type="text" id="years" name="years"><br><br>
+            </p>
+            <p id="TotalAmount">
+                Amount: <br>
+                <input type="text" id="amount" name="amount"><br><br>
+            </p>
+            Monthly Payment: <br><br><br>
+            <div id="payment"></div><br><br>
+            <button type="button" onclick="calculate()">calculate</button>
+            <button type="reset" id="clear" name="reset">reset</button>
+            <button type="button" onclick="calculate(1)" >Generate Random Values</button>
+        </form>
+    </div>
+</body></html>
