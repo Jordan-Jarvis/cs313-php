@@ -1,4 +1,5 @@
 var slideIndex = 2;
+var x;
 showDivs(slideIndex);
 
 function plusDivs(n) {
@@ -16,7 +17,11 @@ function showDivs(n) {
     for (i = 0; i < x.length; i++) {
         x[i].style.display = "none";
     }
-    x[slideIndex - 1].style.display = "block";
+    try {
+        x[slideIndex - 1].style.display = "block";
+     }catch(e){
+          
+     }
 }
 
 
