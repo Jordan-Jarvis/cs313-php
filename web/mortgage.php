@@ -8,8 +8,9 @@
 <body>
 <div>
 <?php
-$APR = $_GET["apr"];
-$loanInYears = $_GET["term"];
+session_start()
+$_SESSION["quantityCam"] = "Quantity";
+$loanInY = $_GET["term"];
 $loanAmount = $_GET["amount"];
 $costPerMonth = 0;
 $interestPerMonth = (($APR / 100) / 12);
@@ -22,7 +23,7 @@ $costPerMonth = $loanAmount *
 <table>
       <tr>
          <td>Annual Rate: </td>
-         <td><?php echo $_GET["apr"] . "%"; ?></td>
+         <td><?php echo $_GET["Quantity"] . "%"; ?></td>
       </tr>
       <tr>
          <td>Term: </td>
