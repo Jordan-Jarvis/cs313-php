@@ -14,7 +14,7 @@ Enter a product name, it can be apple Orange bananna or mango<input type=text na
 <?Php
 @$product=$_POST['product'];
 
-if(strlen($product)>3){
+if(strlen($product)>2){
 
 array_push($_SESSION['cart'],$product); // Items added to cart
 }
