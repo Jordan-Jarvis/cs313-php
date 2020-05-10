@@ -1,74 +1,18 @@
-
-
-<?php
+<?Php
 session_start();
 ?>
-
-<!DOCTYPE html>
+<!doctype html public "-//w3c//dtd html 3.2//en">
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+<title>Demo of Session array used for cart from plus2net.com</title>
 </head>
 <body>
-    <strong>Buy a camera:</strong>
 
-    <?php
-    $camera = ["Digital", "SLR", "DSLR"];
-    ?>        
-    <form action="" method="post">
-        <?php
-        if (isset($_POST['Submit'])) {
-            $_SESSION['camera'] = $_POST['camera'];
-        }
-        ?>
-        <select name="camera">
-            <?php
-            foreach ($camera as $cam) {
-                $selected = "";
-                if (isset($_SESSION['camera']) && $_SESSION['camera'] == $cam) {
-                    $selected = "selected='selected'";
-                }
-                // select car based on session variable
-                echo "<option value='$cam' $selected>$cam</option>";
-            }
-            ?>
-        </select>
+<?Php
+$_SESSION['cart']=array(); // Declaring session array
+array_push($_SESSION['cart'],'apple','mango','banana'); // Items added to cart
 
-        <input type="submit" name="Submit" value="Submit!" />
-    </form>
-    <strong>Buy a camera:</strong>
-
-    <?php
-    $Dog = ["Poodle", "Pincer", "Foxhound"];
-    ?>        
-    <form action="" method="post">
-        <?php
-        if (isset($_POST['Submit'])) {
-            $_SESSION['camera'] = $_POST['Dog'];
-        }
-        ?>
-        <select name="camera">
-            <?php
-            foreach ($camera as $cam) {
-                $selected = "";
-                if (isset($_SESSION['camera']) && $_SESSION['camera'] == $cam) {
-                    $selected = "selected='selected'";
-                }
-                // select car based on session variable
-                echo "<option value='$cam' $selected>$cam</option>";
-            }
-            ?>
-        </select>
-
-        <input type="submit" name="Submit" value="Submit!" />
-    </form>
-
-    <strong>
-        <?php if (isset($_SESSION['camera'])) {
-            echo $_SESSION['camera'];
-        }
-            ?>
-        
-    </strong>
+echo "Number of Items in the cart = ".sizeof($_SESSION['cart'])." <a href=cart-remove-all.php>Remove all</a><br>";
+?>
 </body>
+</html>
