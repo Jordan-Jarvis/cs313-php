@@ -11,9 +11,6 @@ if (! empty($productArray)) {
         ?>
 		<div class="product-item">
         <form id="frmCart">
-            <div class="product-image">
-                <img src="<?php echo $productArray[$k]["image"]; ?>">
-            </div>
             <div>
                 <div class="product-info">
                     <strong><?php echo $productArray[$k]["name"]; ?></strong>
