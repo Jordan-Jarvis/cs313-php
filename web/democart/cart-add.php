@@ -11,40 +11,25 @@ session_start();
 
 
 
-<strong>Buy a camera:</strong>
-
-    <?php
-    $camera = ["Digital", "SLR", "DSLR"];
-    $prodID = ["11", "12", "13"];
-    ?>        
-    <form action="" method="post">
-        <?php
-        if (isset($_POST['Submit'])) {
-            $_SESSION['cart'] = $_POST['prodID'];
-        }
-        ?>
-        <select name="camera">
-            <?php
-            foreach ($camera as $cam) {
-                $selected = "";
-                if (isset($_SESSION['camera']) && $_SESSION['camera'] == $cam) {
-                    $selected = "selected='selected'";
-                }
-                // select car based on session variable
-                echo "<option value='$cam' $selected>$cam</option>";
-            }
-            ?>
-        </select>
-
-        <input type="submit" name="Submit" value="Submit!" />
-    </form>
-
-
-
-
+<form action="#" method="post">
+<input type="checkbox" name="check_list[]" value="C/C++"><label>C/C++</label><br/>
+<input type="checkbox" name="check_list[]" value="Java"><label>Java</label><br/>
+<input type="checkbox" name="check_list[]" value="PHP"><label>PHP</label><br/>
+<input type="submit" name="submit" value="Submit"/>
+</form>
+<?php
+if(isset($_POST['submit'])){//to run PHP script on submit
+if(!empty($_POST['check_list'])){
+// Loop to store and display values of individual checked checkbox.
+foreach($_POST['check_list'] as $selected){
+echo $selected."</br>";
+}
+}
+}
+?>
 
 <form method=post action=''>
-Enter a product name <input type=text name=product>
+buy bananna <input type=checkbox name=product value="bananna">
 <input type=submit value='Add to Cart'>
 </form>
 <?Php

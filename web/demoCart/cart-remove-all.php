@@ -5,7 +5,7 @@ session_start();
 <html>
 
 <head>
-<title>Session Cart removal on selection by user at plus2net.com</title>
+<title>Session Cart removal on selection</title>
 </head>
 
 <body>

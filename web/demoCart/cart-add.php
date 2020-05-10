@@ -16,8 +16,8 @@ Enter a product name <input type=text name=product> Quantity <input type=text na
 
 if(strlen($product)>3){
 	$quantity=$_POST['quantity'];
-$b=array("product"=>"$product","quantity"=>$quantity);
-array_push($_SESSION['cart'],$b); // Items added to cart
+	$b=array("product"=>"$product","quantity"=>$quantity);
+	array_push($_SESSION['cart'],$b); // Items added to cart
 }
 echo "<br>Number of Items in the cart = ".sizeof($_SESSION['cart']);
 require 'menu.php';

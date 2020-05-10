@@ -21,11 +21,11 @@ echo "Number of Items in the cart = ".sizeof($_SESSION['cart'])." <br>";
 echo "<form method=post action=''>";
 $max=sizeof($_SESSION['cart']);
 for($i=0; $i<$max; $i++) { 
-echo "<input type=checkbox name=item[] value='$i'>";
-while (list ($key, $val) = each ($_SESSION['cart'][$i])) { 
-echo "   $key -> $val "; 
-}
-echo "<br>";
+    echo "<input type=checkbox name=item[] value='$i'>";
+    while (list ($key, $val) = each ($_SESSION['cart'][$i])) { 
+        echo "   $key -> $val "; 
+    }
+    echo "<br>";
 }
 echo "<input type=submit value=Remove></form>";
 require 'menu.php';
