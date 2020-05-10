@@ -11,26 +11,26 @@ session_start();
     <title></title>
 </head>
 <body>
-    <strong>Choose your model:</strong>
+    <strong>Buy a camera:</strong>
 
     <?php
-    $cars = ["camry", "corolla", "rav4", "tacoma"];
+    $camera = ["Digital", "SLR", "DSLR"];
     ?>        
     <form action="" method="post">
         <?php
         if (isset($_POST['Submit'])) {
-            $_SESSION['cars'] = $_POST['cars'];
+            $_SESSION['camera'] = $_POST['camera'];
         }
         ?>
-        <select name="cars">
+        <select name="camera">
             <?php
-            foreach ($cars as $car) {
+            foreach ($camera as $cam) {
                 $selected = "";
-                if (isset($_SESSION['cars']) && $_SESSION['cars'] == $car) {
+                if (isset($_SESSION['camera']) && $_SESSION['camera'] == $cam) {
                     $selected = "selected='selected'";
                 }
                 // select car based on session variable
-                echo "<option value='$car' $selected>$car</option>";
+                echo "<option value='$cam' $selected>$cam</option>";
             }
             ?>
         </select>
@@ -39,8 +39,8 @@ session_start();
     </form>
 
     <strong>
-        <?php if (isset($_SESSION['cars'])) {
-            echo $_SESSION['cars'];
+        <?php if (isset($_SESSION['camera'])) {
+            echo $_SESSION['camera'];
         }
             ?>
         
