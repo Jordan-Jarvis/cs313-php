@@ -5,7 +5,7 @@ session_start();
 <html>
 
 <head>
-<title>Displaying Session Cart products from plus2net.com</title>
+<title>Displaying Session Cart products</title>
 </head>
 
 <body>

@@ -13,7 +13,7 @@ session_start();
 <div class="container">
 <div class="main">
 
-<h2>PHP: Get Values of Multiple Checked Checkboxes</h2>
+<h2>PHP: Basic store</h2>
 <form action="php_checkbox.php" method="post">
 <label class="heading">Select Your Technical Exposure:</label>
 <input type="checkbox" name="check_list[]" value="C/C++"><label>C/C++</label>
