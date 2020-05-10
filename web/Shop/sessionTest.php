@@ -13,5 +13,7 @@ $_SESSION["favanimal"] = "cat";
 echo "Session variables are set.";
 ?>
 
+<?php $_SESSION['message'] =  $_GET["message"]; ?>
+
 </body>
 </html> 
