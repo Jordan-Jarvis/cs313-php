@@ -1,18 +1,78 @@
-<?Php
+
+
+<?php
 session_start();
+$_SESSION[cart]=array();
+array_push($_SESSION[cart],$prod_id);
+
 ?>
-<!doctype html public "-//w3c//dtd html 3.2//en">
+
+<!DOCTYPE html>
 <html>
 <head>
-<title>Demo of Session array used for cart from plus2net.com</title>
+    <meta charset="UTF-8">
+    <title></title>
 </head>
 <body>
+    <strong>Buy a camera:</strong>
 
-<?Php
-$_SESSION['cart']=array(); // Declaring session array
-array_push($_SESSION['cart'],'apple','mango','banana'); // Items added to cart
+    <?php
+    $camera = ["Digital", "SLR", "DSLR"];
+    $prodID = ["11", "12", "13"];
+    ?>        
+    <form action="" method="post">
+        <?php
+        if (isset($_POST['Submit'])) {
+            $_SESSION['cart'] = $_POST['prodID'];
+        }
+        ?>
+        <select name="camera">
+            <?php
+            foreach ($camera as $cam) {
+                $selected = "";
+                if (isset($_SESSION['camera']) && $_SESSION['camera'] == $cam) {
+                    $selected = "selected='selected'";
+                }
+                // select car based on session variable
+                echo "<option value='$cam' $selected>$cam</option>";
+            }
+            ?>
+        </select>
 
-echo "Number of Items in the cart = ".sizeof($_SESSION['cart'])." <a href=cart-remove-all.php>Remove all</a><br>";
-?>
+        <input type="submit" name="Submit" value="Submit!" />
+    </form>
+    <strong>Buy a camera:</strong>
+
+    <?php
+    $Dog = ["Poodle", "Pincer", "Foxhound"];
+    ?>        
+    <form action="" method="post">
+        <?php
+        if (isset($_POST['Submit'])) {
+            $_SESSION['camera'] = $_POST['Dog'];
+        }
+        ?>
+        <select name="camera">
+            <?php
+            foreach ($camera as $cam) {
+                $selected = "";
+                if (isset($_SESSION['camera']) && $_SESSION['camera'] == $cam) {
+                    $selected = "selected='selected'";
+                }
+                // select car based on session variable
+                echo "<option value='$cam' $selected>$cam</option>";
+            }
+            ?>
+        </select>
+
+        <input type="submit" name="Submit" value="Submit!" />
+    </form>
+
+    <strong>
+        <?php if (isset($_SESSION['camera'])) {
+            echo $_SESSION['camera'];
+        }
+            ?>
+        
+    </strong>
 </body>
-</html>
