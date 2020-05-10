@@ -1,3 +1,5 @@
+
+
 <?php
 session_start();
 ?>
@@ -9,51 +11,38 @@ session_start();
     <title></title>
 </head>
 <body>
-    <strong>Digital Camera: $134:</strong>
+    <strong>Choose your model:</strong>
 
     <?php
-    $camera = ["0","1", "2", "3", "4"];
+    $cars = ["camry", "corolla", "rav4", "tacoma"];
     ?>        
     <form action="" method="post">
         <?php
         if (isset($_POST['Submit'])) {
-            $_SESSION['camera'] = $_POST['camera'];
+            $_SESSION['cars'] = $_POST['cars'];
         }
         ?>
-        <select name="camera">
+        <select name="cars">
             <?php
-            foreach ($camera as $cam) {
+            foreach ($cars as $car) {
                 $selected = "";
-                if (isset($_SESSION['camera']) && $_SESSION['camera'] == $cam) {
+                if (isset($_SESSION['cars']) && $_SESSION['cars'] == $car) {
                     $selected = "selected='selected'";
                 }
                 // select car based on session variable
-                echo "<option value='$cam' $selected>$cam</option>";
+                echo "<option value='$car' $selected>$car</option>";
             }
             ?>
         </select>
-      </form>
-      <strong>New Puppy: $60:</strong>
 
-    <?php
-    $newPup = ["0","1", "2", "3", "4"];
-    ?>        
-    <form action="" method="post">
-        <?php
-        if (isset($_POST['Submit'])) {
-            $_SESSION['newPup'] = $_POST['newPup'];
+        <input type="submit" name="Submit" value="Submit!" />
+    </form>
+
+    <strong>
+        <?php if (isset($_SESSION['cars'])) {
+            echo $_SESSION['cars'];
         }
-        ?>
-        <select name="newPup">
-            <?php
-            foreach ($newPup as $nPup) {
-                $selected = "";
-                if (isset($_SESSION['newPup']) && $_SESSION['newPup'] == $cam) {
-                    $selected = "selected='selected'";
-                }
-                // select car based on session variable
-                echo "<option value='$newPup' $selected>$newPup</option>";
-            }
             ?>
-        </select>
-      </form>
+        
+    </strong>
+</body>
