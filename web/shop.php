@@ -32,3 +32,28 @@ session_start();
             }
             ?>
         </select>
+      </form>
+      <strong>New Puppy: $60:</strong>
+
+    <?php
+    $newPup = ["0","1", "2", "3", "4"];
+    ?>        
+    <form action="" method="post">
+        <?php
+        if (isset($_POST['Submit'])) {
+            $_SESSION['newPup'] = $_POST['newPup'];
+        }
+        ?>
+        <select name="newPup">
+            <?php
+            foreach ($newPup as $nPup) {
+                $selected = "";
+                if (isset($_SESSION['newPup']) && $_SESSION['newPup'] == $cam) {
+                    $selected = "selected='selected'";
+                }
+                // select car based on session variable
+                echo "<option value='$newPup' $selected>$newPup</option>";
+            }
+            ?>
+        </select>
+      </form>
