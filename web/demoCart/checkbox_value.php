@@ -4,7 +4,7 @@ if(isset($_POST['submit'])){
 if(!empty($_POST['check_list'])) {
 // Counting number of checked checkboxes.
 
-$_SESSION["checklist"] = 'check_list';
+$_SESSION["checklist"] = $_POST['check_list'];
 $temp = $_SESSION["checklist"];
 $checked_count = count($temp);
 
