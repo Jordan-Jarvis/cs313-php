@@ -1,3 +1,8 @@
+<?Php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +12,7 @@
 <body>
 <div class="container">
 <div class="main">
+
 <h2>PHP: Get Values of Multiple Checked Checkboxes</h2>
 <form action="php_checkbox.php" method="post">
 <label class="heading">Select Your Technical Exposure:</label>
