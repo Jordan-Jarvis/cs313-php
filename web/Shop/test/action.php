@@ -8,8 +8,10 @@ switch($_POST["action"]) {
 	case "add":
 		if(!empty($_POST["quantity"])) {
 		    $productByCode = $productArray[$_POST["code"]];
-		    $itemArray = array($productByCode["code"]=>array('name'=>$productByCode["name"], 'code'=>$productByCode["code"], 'quantity'=>$_POST["quantity"], 'price'=>$productByCode["price"]));
-			
+			$itemArray = array($productByCode["code"]=>array('name'=>$productByCode["name"], 
+			'code'=>$productByCode["code"], 
+			'quantity'=>$_POST["quantity"], 
+			'price'=>$productByCode["price"]));
 			if(!empty($_SESSION["cart_item"])) {
 			    $cartCodeArray = array_keys($_SESSION["cart_item"]);
 			    if(in_array($productByCode["code"],$cartCodeArray)) {

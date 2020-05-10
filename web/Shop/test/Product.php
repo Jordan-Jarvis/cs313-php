@@ -4,12 +4,12 @@ class Product
 {
 
     public $productArray = array(
-        "3DcAM01" => array(
+        "Book0" => array(
             'id' => '1',
-            'name' => '3D Camera',
-            'code' => '3DcAM01',
-            'image' => 'product-images/camera.jpg',
-            'price' => '1500.00'
+            'name' => 'Book of Mormon',
+            'code' => 'Book0',
+            'image' => 'https://latterdaysaintmag.com/wp-content/uploads/2020/01/book2-768x448.png',
+            'price' => '1.00'
         ),
         "USB02" => array(
             'id' => '2',

@@ -9,14 +9,14 @@ session_start();
 <body>
 <h1>Demo Shopping Cart</h1>
 <?php 
-require_once "product-gallery.php";
+require "product-gallery.php";
 ?>
 <div class="clear-float"></div>
 <div id="shopping-cart">
-<div class="txt-heading">Shopping Cart <a id="btnEmpty" class="cart-action" onClick="cartAction('empty','');"><img src="images/icon-empty.png" /> Empty Cart</a></div>
+<div class="txt-heading">Shopping Cart <a id="btnEmpty" class="cart-action" onClick="cartAction('empty','');">Empty Cart</a></div>
 <div id="cart-item">
 <?php 
-require_once "ajax-action.php";
+require "action.php";
 ?>
 </div>
 </div>
@@ -38,21 +38,7 @@ function cartAction(action, product_code) {
             break;
         }
     }
-    jQuery.ajax({
-        url : "ajax-action.php",
-        data : queryString,
-        type : "POST",
-        success : function(data) {
-            $("#cart-item").html(data);
-            if (action == "add") {
-                $("#add_" + product_code + " img").attr("src",
-                        "images/icon-check.png");
-                $("#add_" + product_code).attr("onclick", "");
-            }
-        },
-        error : function() {
-        }
-    });
+    );
 }
 </script>
 </body>
