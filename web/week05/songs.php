@@ -15,13 +15,13 @@ session_start();
     <title>PGSQL Connect to DB</title>
 </head>
 <body>
-    <h1>Scripture Resources</h1>
+    <h1>Song and album titles.</h1>
 
     <?php
         $statement = $db->query('select title, a.album from song s join album a on s.album = a.id;');
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
         {
-          echo '<p><b>' . $row['title'] . ' ' . $row['album'] . '</p>';
+          echo '<p><b>' . $row['title'] . ' - ' . $row['album'] . '</p>';
         }
     ?>
 </body>
