@@ -21,7 +21,7 @@ session_start();
         $statement = $db->query('select s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title = \'First Playlist\';');
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
         {
-          echo '<p><b>' . $row['title'] . ' - ' . $row['album'] . '</p>';
+          echo '<p><b>' . $row['title'] . '</p>';
         }
     ?>
 </body>
