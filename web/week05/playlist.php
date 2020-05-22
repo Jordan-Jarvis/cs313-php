@@ -26,7 +26,7 @@ session_start();
     ?>
     <h2>Second Playlist Query</h2>
     <?php
-        $statement = $db->query('select s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title = \'First Playlist\';');
+        $statement = $db->query('select s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title = \'Second Playlist\';');
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
         {
           echo '<p><b>' . $row['title'] . '</p>';
