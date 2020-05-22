@@ -35,9 +35,24 @@ CREATE TABLE playlist (
 Insert into album (id, album, releaseDate, albumArtist) VALUES (0,'The better ones', '2015-12-17', 'AJR');
 Insert into album (album, releaseDate, albumArtist) VALUES ('The worse ones', '2014-12-17', '21 Pilots');
 Insert into song (title, album) VALUES('No beats', 1);
-Insert into song (title, album) VALUES('Some beats', 0);
-Insert into songlist (list, songid) VALUES (1, 1);
+Insert into song (title, album) VALUES('All the beats', 0);
+Insert into song (title, album) VALUES('Heart beats', 1);
+Insert into song (title, album) VALUES('Mad beats', 0);
+Insert into song (title, album) VALUES('Red Beets', 1);
+Insert into song (title, album) VALUES('I am beat', 0);
+Insert into song (title, album) VALUES('Beats', 1);
+Insert into song (title, album) VALUES('Good beats', 0);
+Insert into song (title, album) VALUES('Bad beats', 1);
+Insert into song (title, album) VALUES('Most beats', 0);
+Insert into songlist (list, songid) VALUES (0, 4);
 Insert into songlist (list, songid) VALUES (0, 1);
 Insert into songlist (list, songid) VALUES (0, 2);
-insert into playlist(title, songs) VALUES ('Both Songs', 1); --songs references songlist(list)
+Insert into songlist (list, songid) VALUES (0, 6);
+Insert into songlist (list, songid) VALUES (0, 5);
+Insert into songlist (list, songid) VALUES (1, 6);
+Insert into songlist (list, songid) VALUES (1, 5);
+Insert into songlist (list, songid) VALUES (1, 0);
+Insert into songlist (list, songid) VALUES (1, 1);
+insert into playlist(title, songs) VALUES ('First Playlist', 0); --songs references songlist(list)
+insert into playlist(title, songs) VALUES ('Second Playlist', 1); --songs references songlist(list)
 
