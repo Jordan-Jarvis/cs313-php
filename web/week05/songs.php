@@ -18,7 +18,7 @@ session_start();
     <h1>Song and album titles.</h1>
 
     <?php
-        $statement = $db->query('select title, a.album from song s join album a on s.album = a.id;');
+        $statement = $db->query('select title, a.album from song s join album a on s.album = a.id order by a.album;');
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
         {
           echo '<p><b>' . $row['title'] . ' - ' . $row['album'] . '</p>';
