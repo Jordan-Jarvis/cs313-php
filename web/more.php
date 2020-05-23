@@ -52,16 +52,18 @@ session_start();
         </div>
 
       <div class="item3">
-      <p>Playlist 1</p>
-            <ul>
-                <?php
-                    $statement = $db->query('select title, a.album from song s join album a on s.album = a.id order by a.album;');
-                    while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-                    {
-                    echo '<p><b>' . $row['title'] . ' - ' . $row['album'] . '</p>';
-                    }
-                ?>
-                </ul>
+        <div class="item2">
+            <p>Playlist 1</p>
+                    <ul>
+                        <?php
+                            $statement = $db->query('select title, a.album from song s join album a on s.album = a.id order by a.album;');
+                            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+                            {
+                            echo '<p><b>' . $row['title'] . ' - ' . $row['album'] . '</p>';
+                            }
+                        ?>
+                        </ul>
+                        </div>
             <h1>What are you doing here?</h1>
             <p>This page is boring. There is nothing more you need to know about me.</p>
       </div>
