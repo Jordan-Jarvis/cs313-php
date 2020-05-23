@@ -33,7 +33,7 @@ session_start();
         <header class="container item1" id="home">
             <img class="image" src="https://wallpaperaccess.com/full/741407.jpg" alt="Stock background">
             <div class="display-middle">
-                <h1 class="text"><span class="span"><b>What are you doing here?</b></span></h1>
+                <h1 class="text"><span class="span"><b>My first playlist, see those songs??</b></span></h1>
             </div>
         </header>
 
@@ -47,14 +47,6 @@ session_start();
                     echo '<li>' . $row['title'] . '</li>';
                     }
                 ?>
-
-                <li><a href="#">Here </a></li>
-                <li>Are </li>
-                <li>Some </li>
-                <li>Cool </li>
-                <li>Decorations</li>
-                <li>That</li>
-                <li>I like.</li>
             </ul>
         </div>
 
