@@ -1,3 +1,10 @@
+ 
+<?php
+session_start();
+
+    require_once 'database.php';
+    $db = get_db();
+?>
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>Jarvis University</title>
@@ -33,7 +40,14 @@
         
         <div class="item2">
             <ul>
-                
+                <?php
+                    $statement = $db->query('select s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title = \'First Playlist\' order by s.title;');
+                    while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+                    {
+                    echo '<li>' . $row['title'] . '</li>';
+                    }
+                ?>
+
                 <li><a href="#">Here </a></li>
                 <li>Are </li>
                 <li>Some </li>
