@@ -18,7 +18,9 @@ session_start();
     <h1>First Playlist Query</h1>
 
     <?php
-        $statement = $db->query('select s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title = \'First Playlist\' order by s.title;');
+    $name = "First Playlist";
+        $statement = $db->prepare('select s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title = \':title\' order by s.title;');
+        $statement->bindValue(':title', $name, PDO::PARAM_STR);
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
         {
           echo '<p><b>' . $row['title'] . '</p>';

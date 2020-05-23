@@ -56,8 +56,6 @@ session_start();
                     }
                 ?>
                 </ul>
-            <h1>What are you doing here?</h1>
-            <p>This page is boring. There is nothing more you need to know about me.</p>
       </div>
 
         <!-- Footer -->
