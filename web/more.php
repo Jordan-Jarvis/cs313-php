@@ -30,7 +30,10 @@ session_start();
 <p><br><br><br><br><br><br></p>
     <!-- Header -->
     <div class="grid-container">
-       
+    <form method=post action='week05/playlist.php'>
+        Enter a Playlist title here. (The database currently contains "First Playlist" and "Second Playlist".<input type=text name=title>
+        <input type=submit value='Lookup'>
+    </form>
         <div class="item2">
             <p>Playlist 1</p>
             <ul>
