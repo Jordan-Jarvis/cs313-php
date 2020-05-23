@@ -39,6 +39,7 @@ session_start();
 
         
         <div class="item2">
+            <p>Playlist 1</p>
             <ul>
                 <?php
                     $statement = $db->query('select s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title = \'First Playlist\' order by s.title;');
