@@ -28,7 +28,7 @@ session_start();
             </div>
         </div>
     </div>
-<p><br><br><br><br><br><br></p>
+<p><br><br><br><br><br></p>
     <!-- Header -->
     <div class="grid-container">
     <form method=post action='more.php'>
