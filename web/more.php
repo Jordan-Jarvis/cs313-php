@@ -2,7 +2,7 @@
 <?php
 session_start();
 
-    require_once 'database.php';
+    require_once 'week05/database.php';
     $db = get_db();
 ?>
 <!DOCTYPE html>
