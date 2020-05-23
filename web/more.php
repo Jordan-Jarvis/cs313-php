@@ -52,8 +52,8 @@ session_start();
         </div>
 
       <div class="item3">
-          
-      <p>Playlist 1</p>
+      <div class="item2">
+      <p>Song list and album</p>
             <ul>
                 <?php
                     $statement = $db->query('select title, a.album from song s join album a on s.album = a.id order by a.album;');
@@ -63,6 +63,7 @@ session_start();
                     }
                 ?>
                 </ul>
+                </div>
             <h1>What are you doing here?</h1>
             <p>This page is boring. There is nothing more you need to know about me.</p>
       </div>
