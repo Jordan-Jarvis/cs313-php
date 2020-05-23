@@ -22,7 +22,8 @@ session_start();
         $statement = $db->prepare('select s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title = \':title\' order by s.title;');
         $statement->bindValue(':title', $title, PDO::PARAM_STR);
         $statement->execute();
-        while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach($rows as $row)
         {
           echo '<p><b>' . $row['title'] . '</p>';
         }
