@@ -30,9 +30,9 @@ session_start();
         $stmt->bindValue(':name', $name, PDO::PARAM_STR);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+        foreach ($rows as $row => $ro)
         {
-          echo '<p><b>' . $row['title'] . '</p>';
+          echo '<p><b>' . $ro['title'] . '</p>';
         }
     ?>
 </body>
