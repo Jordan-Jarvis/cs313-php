@@ -4,7 +4,7 @@ session_start();
 
     require_once 'week05/database.php';
     $db = get_db();
-    
+    $title = $_POST["title"];
 ?>
 <!DOCTYPE html>
 <html lang="en"><head>
@@ -50,7 +50,7 @@ session_start();
                 
                 
                 <?php
-                    $title = $_POST["title"];
+
                     $statement = $db->query('select s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title = \'First Playlist\' order by s.title;');
                     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
                     {
