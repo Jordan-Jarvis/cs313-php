@@ -30,14 +30,7 @@ session_start();
 
     <!-- Header -->
     <div class="grid-container">
-        <header class="container item1" id="home">
-            <img class="image" src="https://wallpaperaccess.com/full/741407.jpg" alt="Stock background">
-            <div class="display-middle">
-                <h1 class="text"><span class="span"><b>My first playlist, see those songs??</b></span></h1>
-            </div>
-        </header>
-
-        
+       
         <div class="item2">
             <p>Playlist 1</p>
             <ul>
@@ -52,7 +45,7 @@ session_start();
         </div>
 
       <div class="item3">
-      <div class="item2">
+          
       <p>Song list and album</p>
             <ul>
                 <?php
@@ -63,7 +56,6 @@ session_start();
                     }
                 ?>
                 </ul>
-                </div>
             <h1>What are you doing here?</h1>
             <p>This page is boring. There is nothing more you need to know about me.</p>
       </div>
