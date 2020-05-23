@@ -44,19 +44,11 @@ session_start();
                     $sqlQuery = "SELECT s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title ='$title' order by s.title;";
                     foreach ($db->query($sqlQuery) as $row)
                     {
-                    echo '<p><b>' . $row['title'] . '</p>';
+                        echo '<li>' . $row['title'] . '</li>';
                     }
                 ?>
                 
-                
-                <?php
 
-                    $statement = $db->query('select s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title = \'First Playlist\' order by s.title;');
-                    while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-                    {
-                    echo '<li>' . $row['title'] . '</li>';
-                    }
-                ?>
             </ul>
         </div>
 
