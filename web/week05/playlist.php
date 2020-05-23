@@ -4,6 +4,7 @@ session_start();
 
     require_once 'database.php';
     $db = get_db();
+    $title = $_POST["title"];
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +27,7 @@ session_start();
     ?>
     <h2>Second Playlist Query</h2>
     <?php
-        $title = "Second Playlist";
+        
         $sqlQuery = "SELECT s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title ='$title' order by s.title;";
         foreach ($db->query($sqlQuery) as $row)
         {
