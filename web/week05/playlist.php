@@ -26,13 +26,11 @@ session_start();
     ?>
     <h2>Second Playlist Query</h2>
     <?php
-        $stmt = $db->prepare('select s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title =:name order by s.title;');
-        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
-        $stmt->execute();
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($rows as $row => $ro)
+        $title = "Second Playlist";
+        $sqlQuery = "SELECT s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title ='$title' order by s.title;";
+        foreach ($db->query($sqlQuery) as $row)
         {
-          echo '<p><b>' . $ro['title'] . '</p>';
+          echo '<p><b>' . $row['title'] . '</p>';
         }
     ?>
 </body>
