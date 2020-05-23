@@ -4,6 +4,7 @@ session_start();
 
     require_once 'week05/database.php';
     $db = get_db();
+    
 ?>
 <!DOCTYPE html>
 <html lang="en"><head>
@@ -30,14 +31,26 @@ session_start();
 <p><br><br><br><br><br><br></p>
     <!-- Header -->
     <div class="grid-container">
-    <form method=post action='week05/playlist.php'>
+    <form method=post action='more.php'>
         Enter a Playlist title here. (The database currently contains "First Playlist" and "Second Playlist".<input type=text name=title>
         <input type=submit value='Lookup'>
     </form>
         <div class="item2">
             <p>Playlist 1</p>
             <ul>
+                
+            <h2>Second Playlist Query</h2>
                 <?php
+                    $sqlQuery = "SELECT s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title ='$title' order by s.title;";
+                    foreach ($db->query($sqlQuery) as $row)
+                    {
+                    echo '<p><b>' . $row['title'] . '</p>';
+                    }
+                ?>
+                
+                
+                <?php
+                    $title = $_POST["title"];
                     $statement = $db->query('select s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title = \'First Playlist\' order by s.title;');
                     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
                     {
