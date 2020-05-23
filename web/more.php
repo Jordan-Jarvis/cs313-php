@@ -36,7 +36,6 @@ session_start();
         <input type=submit value='Lookup'>
     </form>
         <div class="item2">
-            <p>Playlist 1</p>
             <ul>
                 
             <h2>Playlist Query</h2>
