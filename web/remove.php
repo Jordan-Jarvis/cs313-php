@@ -22,10 +22,11 @@ try
 
 	// Add the Scripture
     $sqlQuery = "SELECT sl.list from playlist p join songlist sl on sl.list = p.songs where p.title = '$title';";
-    $row = $db->query($sqlQuery);
-    
-    $tempVal = $row['list'];
-    
+    foreach ($db->query($sqlQuery) as $row)
+    {
+        $tempVal = $row['list'];
+        echo $row['list'];
+    }
     // We do this by preparing the query with placeholder values
     
 	$query = "DELETE From songlist where songlist.list = '$tempVal' and songlist.songid = '$sid'; ";
