@@ -46,14 +46,13 @@ session_start();
                     $statement = $db->query('select p.title, l.list from playlist p join songlist l on p.songs = l.list group by p.title, l.list;');
                     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
                     {
-                        echo '<option value=' . $row['list'] .'>' . $row['title'] .  '</option>';
+                        echo '<option value=' . $row['title'] .'>' . $row['title'] .  '</option>';
                     }
                 ?>
             </select>
         Enter a Playlist title here. (The database curr
         ently contains "First Playlist" and "Second
          Playlist".
-
         <input type=submit value='Lookup'>
     </form>
         <div class="item2">
