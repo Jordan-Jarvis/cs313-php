@@ -58,3 +58,12 @@ insert into playlist(title, songs) VALUES ('Second Playlist', 1); --songs refere
 
 select p.title, l.list from playlist p join songlist l on p.songs = l.list group by p.title, l.list; -- song list id from songs
 select s.title, a.album from song s join album a on s.album = a.id order by a.album ASC;
+
+
+
+delete sl 
+from songlist as sl 
+join playlist as p 
+on sl.list = p.songs join song as s 
+on sl.songid = s.id 
+where s.id = 'Heart beats' and p.title = 'Second Playlist';
