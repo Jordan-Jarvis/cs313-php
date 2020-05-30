@@ -32,7 +32,7 @@ try
 	$statement->execute();
 
 	// get the new id
-	$scriptureId = $db->lastInsertId("scripture_id_seq");
+
 
 	// Now go through each topic id in the list from the user's checkboxes
 
