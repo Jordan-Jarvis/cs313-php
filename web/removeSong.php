@@ -68,15 +68,14 @@ session_start();
             <ul>
                 
             <h2>Playlist Query</h2>
-                <?php
+            <?php
 
-                    $sqlQuery = "SELECT title, a.album from song s join album a on s.album = a.id where a.album = :title;";
-                    $sqlQuery->bindValue(':title', $title);
-                    foreach ($db->query($sqlQuery) as $row)
-                    {
-                        echo '<li>' . $row['title'] . '</li>';
-                    }
-                ?>
+$sqlQuery = "SELECT s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title ='$title' order by s.title;";
+foreach ($db->query($sqlQuery) as $row)
+{
+    echo '<li>' . $row['title'] . '</li>';
+}
+?>
             </ul>
         </div>
 
