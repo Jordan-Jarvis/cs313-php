@@ -58,8 +58,14 @@ session_start();
                         echo '<input type="hidden" name="sl" id="hiddenField" value="' . $row['list'] . '" />';
                         echo '<option value="' . $row['id'] .'">' . $row['title'] .  '</option>';
                     }
+                    echo '</select>';
+                    foreach ($db->query($sqlQuery) as $row)
+                    {
+                        echo '<input type="hidden" name="sl" id="hiddenField" value="' . $row['list'] . '" />';
+                        break;
+                    }
                     ?>
-                </select>
+
                 
                 <input type=submit value='Remove Selected Song'>
                 <form>
