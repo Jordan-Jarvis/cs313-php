@@ -34,11 +34,6 @@ session_start();
     <!-- Header -->
     <div class="grid-container">
 
-
-
-
-
-    
     <form method=post action='removeSong.php'>
     Select the playlist you would like to remove songs from.
         <select id="title" name=title>
@@ -52,7 +47,9 @@ session_start();
             </select>
         <input type=submit value='Get Songs'>
     </form>
-    <form method=post action='remove.php'>
+        <div class="item2">
+            <ul>
+            <form method=post action='remove.php'>
     <select id="songs" name=songs>
     <?php
 
@@ -64,9 +61,6 @@ foreach ($db->query($sqlQuery) as $row)
 ?>
     </select>
     <form>
-        <div class="item2">
-            <ul>
-                
             <h2>Playlist Query</h2>
             <?php
 
