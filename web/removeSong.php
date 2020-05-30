@@ -41,7 +41,7 @@ session_start();
     
     <form method=post action='more.php'>
     Select the playlist you would like to add to.
-        <select id="title" name="title">
+        <select id="title" name=title>
         <?php
                     $statement = $db->query('select p.title from playlist p join songlist l on p.songs = l.list group by p.title, l.list;');
                     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
