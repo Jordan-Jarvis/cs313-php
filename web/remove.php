@@ -19,7 +19,7 @@ $db = get_db();
 
 try
 {
-    $tempVal = 'temp';
+    $tempVal = '';
 	// Add the Scripture
     $sqlQuery = "SELECT sl.list from playlist p join songlist sl on sl.list = p.songs where p.title = '$title';";
     foreach ($db->query($sqlQuery) as $row)
