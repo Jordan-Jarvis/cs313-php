@@ -71,7 +71,7 @@ session_start();
                 <?php
 
                     $sqlQuery = "SELECT title, a.album from song s join album a on s.album = a.id where a.album = :title;";
-                    $statement->bindValue(':title', $title);
+                    $statement->bindValue(':title', $_POST['title']);
                     foreach ($db->query($sqlQuery) as $row)
                     {
                         echo '<li>' . $row['title'] . '</li>';
