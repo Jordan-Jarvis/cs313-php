@@ -56,3 +56,5 @@ Insert into songlist (list, songid) VALUES (1, 1);
 insert into playlist(title, songs) VALUES ('First Playlist', 0); --songs references songlist(list)
 insert into playlist(title, songs) VALUES ('Second Playlist', 1); --songs references songlist(list)
 
+select p.title, l.list from playlist p join songlist l on p.songs = l.list group by p.title, l.list; -- song list id from songs
+select s.title, a.album from song s join album a on s.album = a.id order by a.album ASC;

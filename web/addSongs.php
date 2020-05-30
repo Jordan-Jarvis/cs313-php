@@ -32,7 +32,7 @@ session_start();
 <p><br><br><br><br><br></p>
     <!-- Header -->
     <div class="grid-container">
-    <form method=post action='more.php'>
+    <form method=post action='insertSong.php'>
         Select the playlist you would like to add to.
         <select id="playlist" name="plist">
         <?php
@@ -53,7 +53,7 @@ session_start();
                     }
                 ?>
             </select>
-        <input type=submit value='Lookup'>
+        <input type=submit value='Add Song'>
     </form>
         <div class="item2">
             <ul>

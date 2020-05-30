@@ -5,6 +5,8 @@ session_start();
     require_once 'week05/database.php';
     $db = get_db();
     $title = $_POST["title"];
+    $plist = $_POST["plist"]
+    
 ?>
 <!DOCTYPE html>
 <html lang="en"><head>
