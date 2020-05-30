@@ -71,6 +71,9 @@ session_start();
                 
                 <input type=submit value='Remove Selected Song'>
                 <form>
+                <form action="removeSong.php">
+                <input type="submit" value="Add a song" />
+                </form>
             <h2>Playlist Query</h2>
             <?php
 

@@ -55,8 +55,8 @@ session_start();
             </select>
         <input type=submit value='Add Song'>
     </form>
-    <form action="https://google.com">
-    <input type="submit" value="Go to Google" />
+    <form action="removeSong.php">
+    <input type="submit" value="Remove a song" />
 </form>
         <div class="item2">
             <ul>
