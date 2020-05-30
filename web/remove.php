@@ -22,12 +22,12 @@ try
 
 	// Add the Scripture
     $sqlQuery = "SELECT sl.list from playlist p join songlist sl on sl.list = p.songs where p.title = '$title';";
-    foreach ($db->query($sqlQuery) as $row)
-    {
-        $tempVal = $row['sl.list'];
-    }
     // We do this by preparing the query with placeholder values
-    
+    $result = mysql_query($sqlQuery) or die(mysql_error());
+   //fetch result as an associative array
+    $row = mysql_fetch_array($result) or die(mysql_error());
+    $tempVal = $row['list'];
+
 	$query = "DELETE From songlist where songlist.list = '$tempVal' and songlist.songid = '$sid'; ";
 	$statement = $db->prepare($query);
 
