@@ -43,7 +43,7 @@ session_start();
     Select the playlist you would like to add to.
         <select id="title" name="title">
         <?php
-                    $statement = $db->query('select p.title, l.list from playlist p join songlist l on p.songs = l.list group by p.title, l.list;');
+                    $statement = $db->query('select p.title, from playlist p join songlist l on p.songs = l.list group by p.title, l.list;');
                     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
                     {
                         echo '<option value=' . $row['title'] .'>' . $row['title'] .  '</option>';
