@@ -58,20 +58,7 @@ session_start();
     <form action="removeSong.php">
     <input type="submit" value="Remove a song" />
 </form>
-        <div class="item2">
-            <ul>
-                
-            <h2>Playlist Query</h2>
-                <?php
-
-                    $sqlQuery = "SELECT s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title ='$title' order by s.title;";
-                    foreach ($db->query($sqlQuery) as $row)
-                    {
-                        echo '<li>' . $row['title'] . '</li>';
-                    }
-                ?>
-            </ul>
-        </div>
+        
 
       <div class="item3">
           
