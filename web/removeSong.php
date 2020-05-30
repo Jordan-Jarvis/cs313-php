@@ -55,7 +55,6 @@ session_start();
                     $sqlQuery = "SELECT s.title, s.id, sl.list from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title ='$title' order by s.title;";
                     foreach ($db->query($sqlQuery) as $row)
                     {
-                        echo '<input type="hidden" name="sl" id="hiddenField" value="' . $row['list'] . '" />';
                         echo '<option value="' . $row['id'] .'">' . $row['title'] .  '</option>';
                     }
                     ?>
