@@ -1,7 +1,7 @@
 <?php
 $sid = $_POST['song']; // song id
 
-$title = $_SESSION["title"]; // playlist title
+$sl = $_SESSION["sl"]; // playlist title
 
 // For debugging purposes, you might include some echo statements like this
 // and then not automatically redirect until you have everything working.
@@ -21,15 +21,10 @@ try
 {
 
 	// Add the Scripture
-    $sqlQuery = "SELECT sl.list from playlist p join songlist sl on sl.list = p.songs where p.title = '$title';";
-    foreach ($db->query($sqlQuery) as $row)
-    {
-        $tempVal = $row['list'];
-        echo $row['list'];
-    }
+
     // We do this by preparing the query with placeholder values
     
-	$query = "DELETE From songlist where songlist.list = '$tempVal' and songlist.songid = '$sid'; ";
+	$query = "DELETE From songlist where songlist.list = '$sl' and songlist.songid = '$sid'; ";
 	$statement = $db->prepare($query);
 
 	// Now we bind the values to the placeholders. This does some nice things

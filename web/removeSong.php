@@ -5,8 +5,8 @@ session_start();
     require_once 'week05/database.php';
     $db = get_db();
     $title = $_POST["title"];
-    $plist = $_POST["plist"];
-    $_SESSION["album"] = $title;
+    $_SESSION["title"] = $title;
+
 ?>
 <!DOCTYPE html>
 <html lang="en"><head>
@@ -50,17 +50,19 @@ session_start();
         <div class="item2">
             <ul>
             <form method=post action='remove.php'>
-    <select id="songs" name=song>
-    <?php
-        $sqlQuery = "SELECT s.title, s.id from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title ='$title' order by s.title;";
-        foreach ($db->query($sqlQuery) as $row)
-        {
-            echo '<option value="' . $row['id'] .'">' . $row['title'] .  '</option>';
-        }
-        ?>
-    </select>
-    <input type=submit value='Remove Selected Song'>
-    <form>
+                <select id="songs" name=song>
+                <?php
+                    $sqlQuery = "SELECT s.title, s.id, sl.list from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title ='$title' order by s.title;";
+                    foreach ($db->query($sqlQuery) as $row)
+                    {
+                        echo '<input type="hidden" name="sl" id="hiddenField" value="' . $row['list'] . '" />';
+                        echo '<option value="' . $row['id'] .'">' . $row['title'] .  '</option>';
+                    }
+                    ?>
+                </select>
+                
+                <input type=submit value='Remove Selected Song'>
+                <form>
             <h2>Playlist Query</h2>
             <?php
 
