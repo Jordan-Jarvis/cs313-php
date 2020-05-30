@@ -13,7 +13,7 @@ $plist = $_POST['plist'];
 // we could (and should!) put additional checks here to verify that all this data is actually provided
 
 
-require("dbConnect.php");
+require_once 'week05/database.php';
 $db = get_db();
 
 try
