@@ -5,8 +5,8 @@ session_start();
     require_once 'week05/database.php';
     $db = get_db();
     $title = $_POST["title"];
-    $plist = $_POST["plist"]
-    
+    $plist = $_POST["plist"];
+    $_SESSION["album"] = $title;
 ?>
 <!DOCTYPE html>
 <html lang="en"><head>
@@ -50,27 +50,26 @@ session_start();
         <div class="item2">
             <ul>
             <form method=post action='remove.php'>
-    <select id="songs" name=songs>
+    <select id="songs" name=song>
     <?php
-
-$sqlQuery = "SELECT s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title ='$title' order by s.title;";
-foreach ($db->query($sqlQuery) as $row)
-{
-    echo '<option value="' . $row['title'] .'">' . $row['title'] .  '</option>';
-}
-?>
+        $sqlQuery = "SELECT s.title, s.id from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title ='$title' order by s.title;";
+        foreach ($db->query($sqlQuery) as $row)
+        {
+            echo '<option value="' . $row['id'] .'">' . $row['title'] .  '</option>';
+        }
+        ?>
     </select>
     <input type=submit value='Remove Selected Song'>
     <form>
             <h2>Playlist Query</h2>
             <?php
 
-$sqlQuery = "SELECT s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title ='$title' order by s.title;";
-foreach ($db->query($sqlQuery) as $row)
-{
-    echo '<li>' . $row['title'] . '</li>';
-}
-?>
+                $sqlQuery = "SELECT s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title ='$title' order by s.title;";
+                foreach ($db->query($sqlQuery) as $row)
+                {
+                    echo '<li>' . $row['title'] . '</li>';
+                }
+                ?>
             </ul>
         </div>
 
