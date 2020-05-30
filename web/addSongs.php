@@ -5,6 +5,7 @@ session_start();
     require_once 'week05/database.php';
     $db = get_db();
     $title = $_POST["title"];
+    $plist = $_POST["plist"]
 ?>
 <!DOCTYPE html>
 <html lang="en"><head>
@@ -31,9 +32,8 @@ session_start();
 <p><br><br><br><br><br></p>
     <!-- Header -->
     <div class="grid-container">
-    <form method=post action='addSongs.php'>
-        Enter a Song Title you would like to add.<input type=text name=title>
-        Select the playlist you would like to add it to.<input type=text name=title>
+    <form method=post action='more.php'>
+        Select the playlist you would like to add to.
         <select id="playlist" name="plist">
         <?php
                     $statement = $db->query('select p.title, l.list from playlist p join songlist l on p.songs = l.list group by p.title, l.list;');
@@ -42,10 +42,16 @@ session_start();
                         echo '<option value=' . $row['list'] .'>' . $row['title'] .  '</option>';
                     }
                 ?>
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="fiat">Fiat</option>
-            <option value="audi">Audi</option>
+            </select>
+            Please select the song you would like to add to the playlist.
+        <select id="songs" name="slist">
+        <?php
+                    $statement = $db->query('select s.title, a.album, s.id from song s join album a on s.album = a.id order by a.album ASC;');
+                    while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+                    {
+                        echo '<option value=' . $row['id'] .'>' . $row['title'] . ' - ' . $row['album'] . '</option>';
+                    }
+                ?>
             </select>
         <input type=submit value='Lookup'>
     </form>
