@@ -60,6 +60,7 @@ foreach ($db->query($sqlQuery) as $row)
 }
 ?>
     </select>
+    <input type=submit value='Remove Selected Song'>
     <form>
             <h2>Playlist Query</h2>
             <?php
