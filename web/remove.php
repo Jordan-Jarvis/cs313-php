@@ -33,8 +33,7 @@ try
 
 	// Now we bind the values to the placeholders. This does some nice things
 	// including sanitizing the input with regard to sql commands.
-	$statement->bindValue(':plist', $plist);
-	$statement->bindValue(':slist', $slist);
+
 	$statement->execute();
 
 	// get the new id
