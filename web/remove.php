@@ -1,7 +1,7 @@
 <?php
 $sid = $_POST['song']; // song id
 
-$sl = $_SESSION["sl"]; // playlist title
+$sl = $_POST["sl"]; // playlist title
 
 // For debugging purposes, you might include some echo statements like this
 // and then not automatically redirect until you have everything working.
