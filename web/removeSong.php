@@ -58,7 +58,10 @@ session_start();
                         echo '<input type="hidden" name="sl" id="hiddenField" value="' . $row['list'] . '" />';
                         echo '<option value="' . $row['id'] .'">' . $row['title'] .  '</option>';
                     }
-                    echo '</select>';
+                    ?>
+                    </select>
+                    <?php
+                    echo '';
                     foreach ($db->query($sqlQuery) as $row)
                     {
                         echo '<input type="hidden" name="sl" id="hiddenField" value="' . $row['list'] . '" />';
