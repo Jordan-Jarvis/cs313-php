@@ -41,7 +41,7 @@ session_start();
     
     <form method=post action='more.php'>
     Select the playlist you would like to add to.
-        <select id="playlist" name="plist">
+        <select id="playlist" name="title">
         <?php
                     $statement = $db->query('select p.title, l.list from playlist p join songlist l on p.songs = l.list group by p.title, l.list;');
                     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
@@ -53,7 +53,7 @@ session_start();
         Enter a Playlist title here. (The database curr
         ently contains "First Playlist" and "Second
          Playlist".
-         <input type=text name=title>
+
         <input type=submit value='Lookup'>
     </form>
         <div class="item2">
