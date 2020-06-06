@@ -48,7 +48,8 @@ session_start();
         <input type=submit value='Get Songs'>
     </form>
         <div class="item2">
-            <ul>
+              <ol class="gradient-list">
+
             <form method=post action='remove.php'>
                 <select id="songs" name=song>
                 <?php
