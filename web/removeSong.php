@@ -18,7 +18,7 @@ session_start();
 <link rel="stylesheet" href="./w3.css">
 <link href="./style.css" rel="stylesheet">
 </head>
-<body style="background-color:grey;">
+<body style="background-color:#F0F0F0;">
 <body>
 
     <div class="top">
