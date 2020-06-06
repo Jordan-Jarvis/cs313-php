@@ -48,7 +48,7 @@ session_start();
         <input type=submit value='Get Songs'>
     </form>
         <div class="item2">
-            
+            <ul>
             <form method=post action='remove.php'>
                 <select id="songs" name=song>
                 <?php
@@ -75,7 +75,6 @@ session_start();
                 <input type="submit" value="Add a song" />
                 </form>
             <h2>Playlist Query</h2>
-            <ol class="gradient-list">
             <?php
 
                 $sqlQuery = "SELECT s.title from playlist p join songlist sl on p.songs = sl.list join song s on sl.songid = s.id where p.title ='$title' order by s.title;";
@@ -84,7 +83,7 @@ session_start();
                     echo '<li>' . $row['title'] . '</li>';
                 }
                 ?>
-            </ol>
+            </ul>
         </div>
 
       <div class="item3">
