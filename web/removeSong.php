@@ -84,7 +84,7 @@ session_start();
                     echo '<li>' . $row['title'] . '</li>';
                 }
                 ?>
-            </ul>
+            </ol>
         </div>
 
       <div class="item3">
