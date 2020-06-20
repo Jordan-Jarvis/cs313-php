@@ -1,0 +1,21 @@
+1. Project Title / One sentence description:
+Playlist manager, Add or remove stuff from a playlist in a database designed for scalability.
+
+2. The Heroku URL for your web application:
+https://radiant-bayou-31488.herokuapp.com/removeSong.php?
+
+3. The GitHub URL for your source code repository:
+https://github.com/da-ha3ker/cs313-php
+
+4. A link to the SQL file that contains the commands used to create your tables (e.g. a link to the myDb.sql file at GitHub, or something similar).
+https://github.com/da-ha3ker/cs313-php/blob/master/db/myDb.sql
+
+5. Please provide a brief description of what your project does and how to use the application. Make sure to include any required information like a username and password.
+This project is the beginning of an online media player. The project consists of querying songs and their album information and playlists created by the
+user. To use it all you need to do is select the playlist you want to work with, get the data, and select the songs you want to add or remove.
+
+6. Briefly describe any pieces of the assignment that are not yet working correctly.
+
+I had a really hard time getting the stuff to look pretty. I spent a very long time (10+ hrs) working on the look of everything but I feel like it 
+is not very good. Something that does work the way I want it to, but could be seen as a bug is duplicate songs in a playlist.
+I personally like adding certain songs multiple times as it increases the chance it will play when the playlist is on shuffle.
