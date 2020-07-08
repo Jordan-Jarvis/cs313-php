@@ -18,10 +18,47 @@ function getAlbum(request, response) {
 		}
 	});
 }
+function getSonglist(request, response)
+{
+  const id = request.query.id;
 
+	// TODO: We should really check here for a valid id before continuing on...
+
+	// use a helper function to query the DB, and provide a callback for when it's done
+	getSonglistFromDb(id, function(error, result) {
+		// This is the callback function that will be called when the DB is done.
+		// The job here is just to send it back.
+
+		// Make sure we got a row with the person, then prepare JSON to send back
+		if (error || result == null) {
+      response.status(500).json({success: false, data: error});
+      console.log("Error in query: Nothing returned")
+		} else {
+      const person = result;
+			response.status(200).json(person);
+		}
+	});
+}
+
+function getSonglistFromDb(id, callback) {
+  console.log("Getting list of songs from playlist");
+  const sql = "SELECT * FROM song join songList on song.id = songList.songid where songList.list = $1::int";
+  const params = [id];
+  pool.query(sql, params, function(err, result) {
+		// If an error occurred...
+		if (err) {
+			console.log("Error in query: ")
+			console.log(err);
+			callback(err, null);
+		}
+    console.log("Found result: " + JSON.stringify(result.rows));
+    callback(null, result.rows);
+		// Log this to the console for debugging purposes.
+  });
+}
 
 function getAlbumFromDb(id, callback) {
-	console.log("Getting album from DB with id: " + id);
+	console.log("Getting list of songs from DB with id: " + id);
 
 	// Set up the SQL that we will use for our query. Note that we can make
 	// use of parameter placeholders just like with PHP's PDO.
@@ -188,6 +225,7 @@ var express = require('express');
 const { Pool } = require('pg');
 var app = express();
 var url = require('url');
+const { response } = require('express');
 const connectionString = process.env.DATABASE_URL || "postgres://lgmrmmnoxogtev:57cf1be7f238a3268dc3c894e310cb802337fcd3cecb5a118c7aa7bc8b539de1@ec2-23-20-129-146.compute-1.amazonaws.com:5432/d4q1a015ls1bcv?ssl=true";
 const pool = new Pool({connectionString: connectionString});
 var sql = "SELECT * FROM album";
@@ -206,8 +244,7 @@ pool.query(sql, function(err, result) {
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(express.static(__dirname + '/public'));
-
+app.use('/public',express.static(__dirname +'/public'));
 // views is directory for all template files
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -216,7 +253,17 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
+app.get('/AboutMe', function(request, response)
+{
+  response.render('pages/AboutMe');
+})
 app.get('/getAlbum', getAlbum);
+
+app.get('/getSonglist', getSonglist)
+
+app.get('/playMusic', function(request, response) {
+  response.render('pages/playMusic');
+});
 
 app.get('/postalRequest', function(request, response) {
   response.render('pages/postalRequest');
