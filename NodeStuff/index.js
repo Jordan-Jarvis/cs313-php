@@ -20,7 +20,7 @@ function getAlbum(request, response) {
 }
 function getSonglist(request, response)
 {
-  const id = request.query.id;
+  const id = request.query.id; 
 
 	// TODO: We should really check here for a valid id before continuing on...
 
@@ -42,9 +42,9 @@ function getSonglist(request, response)
 
 function getSonglistFromDb(id, callback) {
   console.log("Getting list of songs from playlist");
-  const sql = "SELECT * FROM song join songList on song.id = songList.songid where songList.list = $1::int";
-  const params = [id];
-  pool.query(sql, params, function(err, result) {
+  const sql = "SELECT * FROM song";
+
+  pool.query(sql, function(err, result) {
 		// If an error occurred...
 		if (err) {
 			console.log("Error in query: ")

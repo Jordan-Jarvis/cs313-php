@@ -122,15 +122,6 @@
         grid-area: footer;
     }
 
-    .grid-container {
-        display: grid;
-        grid-template-areas:
-            'header header header header header header'
-            'menu menu main main main main'
-            'menu menu main main main main'
-            'footer footer footer footer footer footer';
-
-    }
     li{
         padding: 8px 16px;
         border: solid 2px black;
